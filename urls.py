@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     #change Language
     (r'^i18n/', include('django.conf.urls.i18n')),
-    
+
     # django default stuff
     url(r'^accounts/', include('main.registration_urls')),
     url(r'^admin/', include(admin.site.urls)),
@@ -40,7 +40,7 @@ urlpatterns = patterns('',
     url(r'^login_redirect/$', 'main.views.login_redirect'),
     url(r"^attachment/$", 'odk_viewer.views.attachment_url'),
     url(r"^attachment/(?P<size>[^/]+)$", 'odk_viewer.views.attachment_url'),
-    url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', 
+    url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog',
         {'packages': ('main', 'odk_viewer',)}),
     url(r'^(?P<username>[^/]+)/$', 'main.views.profile', name='user_profile'),
     url(r'^(?P<username>[^/]+)/profile$', 'main.views.public_profile', name='public_profile'),
@@ -68,6 +68,10 @@ urlpatterns = patterns('',
     url(r'^(?P<username>[^/]+)/forms/(?P<id_string>[^/]+)/delservice$',
         'restservice.views.delete_service', name="delete_restservice"),
     url(r'^(?P<username>[^/]+)/forms/(?P<id_string>[^/]+)/update$', 'main.views.update_xform'),
+
+    # briefcase api urls
+    url(r"^(?P<username>\w+)/view/submissionList$",
+        'odk_logger.views.view_submission_list'),
 
     # stats
     url(r"^stats/submissions/$", 'staff.views.submissions'),
