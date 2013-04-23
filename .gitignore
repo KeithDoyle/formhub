@@ -49,3 +49,8 @@ mongo_vs_instance_counts_report.txt
 .venv
 *.ropeproject
 .noseids
+
+gunicorn_cfg.py
+run_gunicorn.sh
+static
+
