@@ -53,4 +53,4 @@ mongo_vs_instance_counts_report.txt
 gunicorn_cfg.py
 run_gunicorn.sh
 static
-
+celerybeat-schedule
